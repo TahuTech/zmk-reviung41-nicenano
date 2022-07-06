@@ -5,24 +5,18 @@
 Keyboard: Reviung41
 Default Layer: QWERTY
 Keyboard Firmware: ZMK
-Board: Nice!Nano v2
-Microcontroller: Nordic nRF52840
-
-Input Language (PC)
-(the default layout for given language)
-Layout Display Name: Turkish Q
-Layout Text: Turkish Q
+Microcontroller: Nice!Nano v2
 ```
 
 ## Reviung41
-### COLEMAK LAYER (default)
+### QWERTY LAYER (default)
 ```
 ╭──────┬──────┬──────┬──────┬──────┬──────╮            ╭──────┬──────┬──────┬──────┬──────┬──────╮
-│  TAB │  Q   │  W   │  F   │  P   │  G   │            │  J   │  L   │  U   │  Y   │   ;  │ BSPC │
+│  TAB │  Q   │  W   │  E   │  R   │  T   │            │  Y   │  U   │  I   │  O   │   P  │ BSPC │
 ├──────┼──────┼──────┼──────┼──────┼──────┤            ├──────┼──────┼──────┼──────┼──────┼──────┤
-│ CTRL │  A   │  R   │  S   │NAV T │  D   │            │  H   │  N   │  E   │  I   │  O   │   '  │
+│ CTRL │  A   │  S   │  D   │  F   │  G   │            │  H   │  J   │  K   │  L   │  ;   │ ENT  │
 ├──────┼──────┼──────┼──────┼──────┼──────┤            ├──────┼──────┼──────┼──────┼──────┼──────┤
-│SFT_CL│ALT Z │CTL X │SFT C │  V   │  B   │            │  K   │  M   │SFT , │CTL . │ALT / │ ENT  │
+│SFT_CL│  Z   │  X   │  C   │  V   │  B   │            │  N   │  M   │  ,   │  .   │ALT / │ ENT  │
 ╰──────┴──────┴──────┴──────┼──────┼──────┼────────────┼──────┼──────┼──────┴──────┴──────┴──────╯
                             │  ALT │LOWER │    SPACE   │RAISE │ WIN  │
                             ╰──────┴──────┴────────────┴──────┴──────╯
