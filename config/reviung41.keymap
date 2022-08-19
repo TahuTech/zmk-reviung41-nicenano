@@ -44,9 +44,9 @@
 };
 
 / {
-   chosen {
-      zmk,underglow = &led_strip;
-   };
+chosen {
+zmk,underglow = &led_strip;
+};
 };
 
 // &caps_word {
@@ -54,25 +54,25 @@
 // };
 
 / {
-  keymap {
-    compatible = "zmk,keymap";
+keymap {
+compatible = "zmk,keymap";
 
     // QWERTY LAYER (DEFAUT)
 //       │  TAB │  Q   │  W   │  E   │  R   │  T   │            │  Y   │  U   │  I   │  O   │   P  │ BSPC │
 //       ├──────┼──────┼──────┼──────┼──────┼──────┤            ├──────┼──────┼──────┼──────┼──────┼──────┤
-//       │ CTRL │  A   │  S   │  D   │  F   │  G   │            │  H   │  J   │  K   │  L   │  ;   │ ENT  │
+//       │ CTRL │  A   │  S   │  D   │F(NAV)│  G   │            │  H   │  J   │  K   │  L   │  ;   │ ENT  │
 //       ├──────┼──────┼──────┼──────┼──────┼──────┤            ├──────┼──────┼──────┼──────┼──────┼──────┤
 //       │SFT_CL│  Z   │  X   │  C   │  V   │  B   │            │  N   │  M   │  ,   │  .   │  /   │ SHFT │
-    //                             | ALT  | Lower_up |  Space_spc  | Raise_down | WIN  |
+    //                             | WIN  | Lower_up |  Space_spc  | Raise_down | ALT  |
     //                                +-------------/             \--------------+
-    default_layer {
-    bindings = <
-    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp RET
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                                                            &kp LALT  &mo _LOWER &lt _SPACE SPACE  &mo _RAISE  &kp RIGHT_GUI
-                    >;
-            };
+default_layer {
+bindings = <
+&kp TAB   &kp Q &kp W &kp E &kp R               &kp T                        &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+&kp LCTRL &kp A &kp S &kp D &lt _NAVIGATION F   &kp G                        &kp H &kp J  &kp K     &kp L   &kp SEMI &kp RET
+&kp LSHFT &kp Z &kp X &kp C &kp V               &kp B                        &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                &kp RIGHT_GUI           &lt _LOWER SPACE &lt _SPACE SPACE  &lt _RAISE SPACE   &kp LALT
+                >;
+        };
     // LOWER LAYER
     // ,---------------------------------------------------+         +------------------------------------------.
     // |  ESC  |       |       |         |       |         |         |  (   |   )  |   =  |   &  |   |  |       |
@@ -83,18 +83,18 @@
     // |-------+-------+-------+---------+-------+---------+         +------+------+------+------+------+-------|
     //                                   | ____ | ____ |      ENTER     | ____  | ____ |
     //                                   +-------------/                \--------------+
-    lower_layer {
-    bindings = <
-    &kp ESC  &trans  &trans  &trans  &trans  &trans                &kp RS(N8)  &kp RS(N9) &kp RS(N0)        &kp RS(N6)           &kp RA(EQUAL)  &trans
-    &trans   &trans  &trans  &trans  &trans  &trans                &kp RA(N7)  &kp RA(N0) &kp PLUS          &kp RA(N4)           &kp RA(N3)     &kp GRAVE
-    &trans   &trans  &trans  &trans  &trans  &trans                &kp RA(N8)  &kp RA(N9) &kp NON_US_BSLH   &kp RS(NON_US_BSLH)  &kp RA(MINUS)  &trans
-                               &trans      &trans       &kp RET       &mo _ADJUST       &trans
-                    >;
-            };
+lower_layer {
+bindings = <
+&kp ESC  &trans  &trans  &trans  &trans  &trans                &kp RS(N8)  &kp RS(N9) &kp RS(N0)        &kp RS(N6)           &kp RA(EQUAL)  &trans
+&trans   &trans  &trans  &trans  &trans  &trans                &kp RA(N7)  &kp RA(N0) &kp PLUS          &kp RA(N4)           &kp RA(N3)     &kp GRAVE
+&trans   &trans  &trans  &trans  &trans  &trans                &kp RA(N8)  &kp RA(N9) &kp NON_US_BSLH   &kp RS(NON_US_BSLH)  &kp RA(MINUS)  &trans
+                        &trans      &trans       &kp RET       &mo _ADJUST       &trans
+                >;
+        };
 
     // RAISE LAYER
     // ,-----------------------------------------------+         +------------------------------------------.
-    // |  ESC  |   /  |   1   |    2   |   3   |   -   |         |  F1  |  F2  |  F3  |  F4  |      |       |
+    // |  ESC  |   1  |   2   |    3   |   4   |   5   |         |  6   |  7   |  8   |  9   |  0   |  DEL  |
     // |-------+------+-------+--------+-------+-------+         +------+------+------+------+------+-------|
     // |       |   *  |   4   |    5   |   6   |   +   |         |  F5  |  F6  |  F7  |  F8  |      |       |
     // |-------+------+-------+--------+-------+-------+         +------+------+------+------+------+-------|
@@ -102,14 +102,14 @@
     // |-------+------+-------+--------+-------+-------+         +------+------+------+------+------+-------|
     //                                | ____ | ____ |     BSPC     | ____  | ____ |
     //                                +-------------/              \--------------+
-    raise_layer {
-    bindings = <
-    &kp ESC      &kp AMPS    &kp N1  &kp N2  &kp N3  &kp KP_MINUS        &kp F1  &kp F2    &kp F3   &kp F4   &trans   &kp DEL
-    &trans       &kp MINUS   &kp N4  &kp N5  &kp N6  &kp KP_PLUS         &kp F5  &kp F6    &kp F7   &kp F8   &trans   &trans
-    &caps_word   &kp PRCNT   &kp N7  &kp N8  &kp N9  &kp N0              &kp F9  &kp F10   &kp F11  &kp F12  &trans   &trans
-                                 &trans      &mo _ADJUST       &kp BSPC        &trans      &trans
-                    >;
-            };
+raise_layer {
+bindings = <
+&kp ESC      &kp N1    &kp N2  &kp N3  &kp N4  &kp N5                &kp N6  &kp N7    &kp N8   &kp N9   &kp N0   &kp DEL
+&trans       &kp MINUS   &kp N4  &kp N5  &kp N6  &kp KP_PLUS         &kp F5  &kp F6    &kp F7   &kp F8   &trans   &trans
+&caps_word   &kp PRCNT   &kp N7  &kp N8  &kp N9  &kp N0              &kp F9  &kp F10   &kp F11  &kp F12  &trans   &trans
+                                &trans      &mo _ADJUST       &kp BSPC        &trans      &trans
+                >;
+        };
 
     // SPACE LAYER
     // ,-------------------------------------------------- -+         +------------------------------------------.
@@ -122,34 +122,34 @@
     //                                     | ____ | ____ |     _______      | ____  | ____ |
     //                                     +-------------/                \--------------+
 
-    space_layer {
-    bindings = <
-    &kp ESC  &trans    &trans        &kp RA(E)          &kp  RA(N2)  &kp LBKT            &trans   &trans   &kp RBKT           &trans         &kp LS(SLASH)   &kp DEL
-    &trans   &kp EXCL  &kp RA(Q)     &kp SEMI           &kp  RA(T)   &kp SPACE           &trans   &trans   &kp LS(I)          &kp I          &kp COMMA       &kp RA(NON_US_HASH)
-    &trans   &trans    &trans        &mt LSHFT  DOT     &trans       &trans              &trans   &trans   &mt RSHFT RS(N3)   &kp RA(RBKT)   &kp UNDER       &trans
+space_layer {
+bindings = <
+&kp ESC  &kp N1    &kp N2  &kp N3  &kp N4  &kp N5                &kp N6  &kp N7    &kp N8   &kp N9   &kp N0   &kp DEL
+&trans   &kp EXCL  &kp RA(Q)     &kp SEMI           &kp  RA(T)   &kp SPACE           &trans   &trans   &kp LS(I)          &kp I          &kp COMMA       &kp RA(NON_US_HASH)
+&trans   &trans    &trans        &mt LSHFT  DOT     &trans       &trans              &trans   &trans   &mt RSHFT RS(N3)   &kp RA(RBKT)   &kp UNDER       &trans
                                                         &trans  &trans    &trans    &trans     &trans
-                    >;
-            };
+                >;
+        };
 
     // NAVIGATION LAYER
     // ,---------------------------------------------------+         +------------------------------------------.
-    // |       |       |       |         |       |         |         |C_PREV| PGUP |  UP  |      |      |       |
+    // |       |       |   UP  |  PGUP   |       |         |         |C_PREV|C_NEXT|      |      |      |       |
     // |-------+-------+-------+---------+-------+---------+         +------+------+------+------+------+-------|
-    // |       |       |       |         |NAVI_T |         |         | HOME | LEFT | DOWN | RGHT | END  | MPLY  |
+    // |       |  LEFT | DOWN  |  RGHT   |       |         |         | LEFT | DOWN | UP   | RGHT | END  |PLAY(P)|
     // |-------+-------+-------+---------+-------+---------+         +------+------+------+------+------+-------|
-    // |       |       |       |         |       |         |         |C_NEXT|PGDOWN|      |VLDOWN| VLUP | MUTE  |
+    // |       |       |       | PGDOWN  |       |         |         |      |      |      |VLDOWN| VLUP | MUTE  |
     // |-------+-------+-------+---------+-------+---------+         +------+------+------+------+------+-------|
-    //                                    | ____ | ____ |                | ____  | ____ |
+    //                                    | ____ | BSPC |     ENTER    | ____  | ____ |
     //                                    +-------------/                \--------------+
 
-    navigation_layer {
-    bindings = <
-    &kp ESC  &trans  &trans  &trans  &trans  &trans            &kp C_PREV  &kp PG_UP   &kp UP     &trans         &trans         &trans
-    &trans   &trans  &trans  &trans  &trans  &trans            &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT      &kp END        &kp C_PLAY_PAUSE
-    &trans   &trans  &trans  &trans  &trans  &trans            &kp C_NEXT  &kp PG_DN   &none      &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE
-                                    &trans  &trans    &trans    &trans     &trans
-                    >;
-            };
+navigation_layer {
+bindings = <
+&kp ESC  &none    &kp UP    &kp PG_UP  &none  &none              &kp C_PREV  &kp C_NEXT   &none      &none          &none            &none
+&none   &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none              &kp LEFT    &kp DOWN     &kp UP     &kp RIGHT      &kp END          &kp C_PLAY_PAUSE
+&none   &none     &none     &kp PG_DN  &none  &none              &none       &none         &none      &kp C_VOL_DN   &kp C_VOL_UP     &kp C_MUTE
+                                &none &kp BSPC  &kp RET    &none      &none
+                >;
+        };
 
     // ADJUST LAYER
     // ,-------------------------------------------------------- -+         +-----------------------------------------.
@@ -162,14 +162,14 @@
     //                                          | ____ | ____ |     _______      | ____  | ____ |
     //                                           +-------------/                \--------------+
 
-    adjust_layer {
-    bindings = <
-    &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG              &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3       &bt BT_SEL 4        &bt BT_CLR
-    &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none                        &none        &none         &none        &ext_power EP_ON   &ext_power EP_OFF   &ext_power EP_TOG
-    &none           &none           &none           &none           &none &none                        &reset       &bootloader   &none        &out OUT_USB       &out OUT_BLE        &out OUT_TOG
-                                                                  &trans      &trans       &trans        &trans      &trans
-                    >;
-            };
+adjust_layer {
+bindings = <
+&rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG              &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3       &bt BT_SEL 4        &bt BT_CLR
+&rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none                        &none        &none         &none        &ext_power EP_ON   &ext_power EP_OFF   &ext_power EP_TOG
+&none           &none           &none           &none           &none &none                        &reset       &bootloader   &none        &out OUT_USB       &out OUT_BLE        &out OUT_TOG
+                                                                &trans      &trans       &trans        &trans      &trans
+                >;
+        };
         };
 };
 
